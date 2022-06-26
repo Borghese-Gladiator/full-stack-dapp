@@ -1,6 +1,9 @@
 const hre = require("hardhat");
 
 const main = async () => {
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", deployer.address);
+  console.log("Account balance:", (await deployer.getBalance()).toString());
   
   // We get the contract to deploy
   const Transactions = await hre.ethers.getContractFactory("Transactions");
